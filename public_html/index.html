@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BIBLIOTECA</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <script>
+            
+           //------------------------------- Clase Presupuesto
+            // Constructor
+            function Presupuesto(alumno) {
+                this.alumno = alumno;
+                this.libros = [];
+            }
+             
+            // Metodos
+            Presupuesto.prototype.anyadelibro=function(libro)
+            {
+                this.libros[this.libros.length]=libro;
+            };
+    
+            Presupuesto.prototype.verLibros = function() {
+                for (i = 0; i < this.libros.length; i++) {
+                    alert(this.libros[i].titulo);
+                    alert(this.libros[i].autor);
+                    alert(this.libros[i].genero);
+                }
+            };
+    
+    
+            //----------------------------------- Clase Libro
+            function Libro(titulo, autor, genero) {
+                this.titulo = titulo;
+                this.autor = autor;
+                this.genero = genero;
+            }
+            
+            
+    
+            //--------------- Codigo del interface o de la pagina web
+    
+            function nuevoPresupuesto() {
+                 alumno = prompt("TU NOMBRE", "");
+                
+                 presupuesto = new Presupuesto(alumno);
+            }
+            
+            function nuevoLibro() {
+                 titulo = prompt("TITULO", "");
+                 autor = prompt("AUTOR", "");
+                 genero = prompt("GÉNERO", "");
+                
+                 libro = new Libro(titulo, autor, genero);
+                
+                presupuesto.anyadelibro(libro);
+            }
+            
+ 
+            
+            function verLibros() {
+               presupuesto.verLibros();                
+            }
+        </script>
+            
+        <div>
+            <button id="boton1" onclick="nuevoPresupuesto()">AÑADIR PRESUPUESTO</button>
+            <hr />
+            <button id="boton2" onclick="nuevoLibro()">AÑADIR LIBRO</button>
+            <hr />
+            <button id="boton3" onclick="verLibros()">VER LIBROS</button>
+        </div>
+    </body>
+</html>
